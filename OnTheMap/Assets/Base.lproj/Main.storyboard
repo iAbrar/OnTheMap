@@ -83,6 +83,9 @@
                                                         <state key="normal" title="Sign up">
                                                             <color key="titleColor" red="0.0078431372550000003" green="0.70196078429999997" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="signUpTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xmy-yf-Bwk"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -109,7 +112,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="rVa-Qc-qIo" kind="show" id="xCF-UE-gZN"/>
+                        <segue destination="rVa-Qc-qIo" kind="show" identifier="Login" id="xCF-UE-gZN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -149,7 +152,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVg-hg-iGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2238" y="-31"/>
+            <point key="canvasLocation" x="2369" y="-228"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ay1-oh-AO8">
@@ -176,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZH-jc-GXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3198" y="-31"/>
+            <point key="canvasLocation" x="3329" y="-228"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BVK-e4-5UL">
@@ -193,7 +196,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sBr-mh-ARZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2238" y="691"/>
+            <point key="canvasLocation" x="2369" y="493"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="Nwe-Zy-Ybf">
@@ -222,12 +225,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75F-IO-rjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3199" y="691"/>
+            <point key="canvasLocation" x="3329" y="493"/>
         </scene>
         <!--Add Location-->
         <scene sceneID="KPw-xM-Bo8">
             <objects>
-                <viewController id="tW4-Rv-d32" customClass="AddLocationViewController" customModule="Example12" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tW4-Rv-d32" customClass="AddLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z0O-il-bkC"/>
                         <viewControllerLayoutGuide type="bottom" id="V9p-Pm-dwQ"/>
@@ -320,7 +323,7 @@
         <!--Add Location-->
         <scene sceneID="hY0-a7-i7w">
             <objects>
-                <viewController id="NUp-iV-okE" customClass="ConfirmLocationViewController" customModule="Example12" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NUp-iV-okE" customClass="ConfirmLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pzs-NW-SB1"/>
                         <viewControllerLayoutGuide type="bottom" id="rx7-Us-5h5"/>
