@@ -147,7 +147,7 @@
             <objects>
                 <navigationController id="Jgw-Bm-ahY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="icon_mapview-selected" id="y2R-WM-wp1"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hLh-jG-MqV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" restorationIdentifier="navBar" insetsLayoutMarginsFromSafeArea="NO" id="hLh-jG-MqV">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -159,7 +159,7 @@
             </objects>
             <point key="canvasLocation" x="2369" y="-228"/>
         </scene>
-        <!--Map View Controller-->
+        <!--On The Map-->
         <scene sceneID="ay1-oh-AO8">
             <objects>
                 <viewController id="vwj-P5-PXY" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -183,7 +183,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FKv-qs-zX7"/>
                     </view>
-                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="e2t-hK-14s">
+                    <navigationItem key="navigationItem" title="On The Map" leftItemsSupplementBackButton="YES" id="e2t-hK-14s">
                         <barButtonItem key="backBarButtonItem" title="Logout" id="ynu-Sm-eVA"/>
                     </navigationItem>
                     <connections>
@@ -199,7 +199,7 @@
             <objects>
                 <navigationController id="KZE-Wb-B7c" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="icon_listview-selected" id="trJ-SL-wra"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mki-rv-vIk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" restorationIdentifier="navBar" insetsLayoutMarginsFromSafeArea="NO" id="mki-rv-vIk">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -211,7 +211,7 @@
             </objects>
             <point key="canvasLocation" x="2369" y="493"/>
         </scene>
-        <!--Table View Controller-->
+        <!--On The Map-->
         <scene sceneID="t6E-Q0-GfY">
             <objects>
                 <viewController id="61h-kM-pSl" customClass="TableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -247,7 +247,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="60P-G2-H7D"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ISB-3x-2je"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="ISB-3x-2je"/>
                     <connections>
                         <outlet property="tableView" destination="82G-E3-kkw" id="Pec-fE-gVW"/>
                     </connections>

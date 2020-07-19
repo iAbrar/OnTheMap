@@ -11,13 +11,13 @@ import MapKit
 
 class MainViewController: UIViewController {
     
+    
     override func viewDidLoad() {
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addLocationTapped(_:)))
         let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(self.refreshLocationsTapped(_:)))
         let logoutButton = UIBarButtonItem(title: "LOGOUT", style: .plain, target: self, action: #selector(self.logoutTapped(_:)))
         
-        self.title = "On The Map"
         navigationItem.rightBarButtonItems = [addButton, refreshButton]
         navigationItem.leftBarButtonItem = logoutButton
         
