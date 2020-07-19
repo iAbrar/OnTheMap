@@ -115,6 +115,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="ot0-Wb-eTd" id="P7X-nb-Lws"/>
+                        <outlet property="passwordTextField" destination="yrR-Te-KTL" id="szI-7W-Aba"/>
                         <segue destination="rVa-Qc-qIo" kind="show" identifier="Login" id="xCF-UE-gZN"/>
                     </connections>
                 </viewController>

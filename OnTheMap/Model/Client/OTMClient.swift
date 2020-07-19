@@ -41,9 +41,10 @@ class OTMClient {
     }
     
     //login request
-    class func login(email: String, password: String, completion: @escaping (Bool, Error?) -> Void){
+    class func login(email: String, password: String, completion: @escaping (Error?) -> Void){
         
-        var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/session")!)
+        var request = URLRequest(url: Endpoints.login.url)
+        print(request)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -52,30 +53,24 @@ class OTMClient {
         let session = URLSession.shared
         
         let task = session.dataTask(with: request) { data, response, error in
-            guard let data = data else {
-                completion(false,error)
+            if error != nil { // Handle error…
+                DispatchQueue.main.async {
+                    completion(error)
+                }
                 return
             }
-            
-            do {
-                
-                let range = Range(5..<data.count)
-                let newData = data.subdata(in: range) /* subset response data! */
-                let responseObject = try JSONDecoder().decode(LoginResponse.self, from: newData)
-                print(String(data: newData, encoding: .utf8)!)
-                Auth.sessionId = responseObject.session.id
-                completion(true,nil)
-            }catch {
-                completion(false,error)
-            }
+            let range = Range(5..<data!.count)
+            let newData = data?.subdata(in: range) /* subset response data! */
+
+            completion(nil)
         }
+        
         task.resume()
     }
     
   
     class func getStudentsLocation( completion: @escaping (Locations, Error?) -> Void){
-        //        let request = URLRequest(url: URL(string: Endpoints.studentsLocation.url)!)
-        //        let session = URLSession.shared
+        
         let task = URLSession.shared.dataTask(with: Endpoints.studentsLocation.url) { data, response, error in
             
             guard let data = data else {
@@ -84,15 +79,12 @@ class OTMClient {
             }
             
             do{
-                
                 let responseObject = try JSONDecoder().decode(Locations.self, from: data)
                 completion(responseObject,nil)
                 
             }catch{
                 print(error)
-
             }
-            
         }
         task.resume()
     }

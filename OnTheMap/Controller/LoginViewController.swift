@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -16,7 +16,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
 
     
@@ -27,6 +28,19 @@ class LoginViewController: UIViewController {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
     }
-  
+    
+    @IBAction func logInTapped(_ sender: UIButton) {
+        OTMClient.login(email: emailTextField.text!, password: passwordTextField.text!) { (error) in
+            
+            guard error == nil else {
+                print(error)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "Login", sender: nil)
+            }
+        }
+    }
+    
 }
-
