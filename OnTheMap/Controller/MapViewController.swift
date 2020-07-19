@@ -27,7 +27,7 @@ class MapViewController: MainViewController, MKMapViewDelegate {
                     return
             }
             self.createAnnotations(locations: test.results)
-            print("Map \(String(describing: self.studentsLocations?.results.count))")
+          
             
         }
     }

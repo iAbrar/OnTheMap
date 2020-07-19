@@ -50,6 +50,7 @@ class OTMClient {
         // encoding a JSON body from a string, can also use a Codable struct
         request.httpBody = "{\"udacity\": {\"username\": \"\(email)\", \"password\": \"\(password)\"}}".data(using: .utf8)
         let session = URLSession.shared
+        
         let task = session.dataTask(with: request) { data, response, error in
             guard let data = data else {
                 completion(false,error)
@@ -71,31 +72,14 @@ class OTMClient {
         task.resume()
     }
     
-    //    class func getStudentsLocation( completion: @escaping (Bool, Error?) -> Void){
-    //
-    //        let task = URLSession.shared.dataTask(with: Endpoints.studentsLocation.url) { data, response, error in
-    //            guard let data = data else {
-    //                completion(false, error)
-    //                return
-    //            }
-    //            let decoder = JSONDecoder()
-    //            do {
-    //                print(data)
-    //                completion(true, nil)
-    //            } catch {
-    //                completion(false, error)
-    //            }
-    //        }
-    //        task.resume()
-    //    }
-    
-    class func getStudentsLocation( completion: @escaping (Locations?, Error?) -> Void){
+  
+    class func getStudentsLocation( completion: @escaping (Locations, Error?) -> Void){
         //        let request = URLRequest(url: URL(string: Endpoints.studentsLocation.url)!)
         //        let session = URLSession.shared
         let task = URLSession.shared.dataTask(with: Endpoints.studentsLocation.url) { data, response, error in
             
             guard let data = data else {
-                completion(nil, error)
+                print(error)
                 return
             }
             
@@ -105,8 +89,8 @@ class OTMClient {
                 completion(responseObject,nil)
                 
             }catch{
-                completion(nil,error)
-                
+                print(error)
+
             }
             
         }
