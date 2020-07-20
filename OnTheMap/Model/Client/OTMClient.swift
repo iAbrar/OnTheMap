@@ -14,7 +14,7 @@ class OTMClient {
     static let apiId = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
     
     struct Auth {
-        static var accountId = 0
+        static var accountKey = ""
         static var sessionId = ""
     }
     
@@ -61,6 +61,23 @@ class OTMClient {
             }
             let range = Range(5..<data!.count)
             let newData = data?.subdata(in: range) /* subset response data! */
+
+            if let json = try? JSONSerialization.jsonObject(with: newData!, options: []),
+                let dictionary = json as? [String:Any],
+                let sessionDictionary  = dictionary["session"] as? [String: Any],
+                let accountDictionary  = dictionary["account"] as? [String: Any]  {
+                
+                Auth.accountKey = (accountDictionary["key"] as? String)!
+                Auth.sessionId = (sessionDictionary["id"] as? String)!
+
+                
+                print("expiration",  sessionDictionary["expiration"])
+                
+                
+            } else { //Err in parsing data
+               print("error")
+            }
+           
 
             completion(nil)
         }

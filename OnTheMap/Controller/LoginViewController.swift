@@ -36,7 +36,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 print(error)
                 return
             }
-            
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "Login", sender: nil)
             }
