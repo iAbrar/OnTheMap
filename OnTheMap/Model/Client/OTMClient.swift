@@ -25,13 +25,16 @@ class OTMClient {
         case login
         case studentsLocation
         case userInfo
-        
+        case addStudentLocation
+
         var stringValue: String {
             switch self {
                 
             case .login: return Endpoints.base + "/session"
                 
-            case .studentsLocation: return Endpoints.base + "/StudentLocation"
+            case .studentsLocation: return Endpoints.base + "/StudentLocation?order=-updatedAt&limit=100"
+                
+            case .addStudentLocation: return Endpoints.base + "/StudentLocation"
                 
             case .userInfo: return Endpoints.base + "/users/" + Auth.accountKey
 
@@ -75,7 +78,7 @@ class OTMClient {
                 Auth.sessionId = (sessionDictionary["id"] as? String)!
                 
             } else { //Err in parsing data
-               print("error")
+               print("//Error in parsing data")
             }
            
             self.getUserInfo() { (error) in
@@ -130,21 +133,22 @@ class OTMClient {
             }
             let range = Range(5..<data!.count)
             let newData = data?.subdata(in: range) /* subset response data! */
-            print("inside get info")
-            print(String(data: newData!, encoding: .utf8)!)
-            
+             print(String(data: newData!, encoding: .utf8)!)
             if let json = try? JSONSerialization.jsonObject(with: newData!, options: []),
                 let dictionary = json as? [String:Any],
                 let keyDictionary  = dictionary["key"] as? [String: Any],
-                let firstNameDictionary  = dictionary["firstName"] as? [String: Any],
-                let lastNameDictionary  = dictionary["lastName"] as? [String: Any]{
+                let firstNameDictionary  = dictionary["first_name"] as? [String: Any],
+                let lastNameDictionary  = dictionary["last_name"] as? [String: Any] {
 
                 UserInfoModel.user.key = (keyDictionary["key"] as? String)!
                 UserInfoModel.user.firstName = (firstNameDictionary["firstName"] as? String)!
                 UserInfoModel.user.lastName = (lastNameDictionary["lastName"] as? String)!
+                
+                
 
             } else { //Err in parsing data
-                print("error")
+               
+                print("//Err")
             }
              completion(nil)
         }
@@ -167,6 +171,23 @@ class OTMClient {
             }catch{
                 print(error)
             }
+        }
+        task.resume()
+    }
+    
+    //login request
+    class func postUserLocation(student: StudentLocation, completion: @escaping (Error?) -> Void){
+        var request = URLRequest(url: Endpoints.addStudentLocation.url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = "{\"uniqueKey\": \"\(student.uniqueKey ?? "")\", \"firstName\": \"\(student.firstName ?? "")\", \"lastName\": \"\(student.lastName ?? "")\",\"mapString\": \"\(student.mapString ?? "")\", \"mediaURL\": \"\(student.mediaURL ?? "")\",\"latitude\": \(student.latitude ?? 0.0), \"longitude\": \(student.longitude ?? 0.0)}".data(using: .utf8)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil { // Handle error…
+                return
+            }
+            print(String(data: data!, encoding: .utf8)!)
+            completion(nil)
         }
         task.resume()
     }

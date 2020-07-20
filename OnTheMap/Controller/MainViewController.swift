@@ -24,7 +24,9 @@ class MainViewController: UIViewController {
     }
     
     @objc func addLocationTapped(_ sender: Any){
-        print("addLocationTapped")
+        let navController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddLocationNavigationController") as! UINavigationController
+        
+        present(navController, animated: true, completion: nil)
     }
     
     @objc func refreshLocationsTapped(_ sender: Any){
