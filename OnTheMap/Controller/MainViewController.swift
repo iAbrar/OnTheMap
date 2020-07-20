@@ -32,6 +32,15 @@ class MainViewController: UIViewController {
     }
     
     @objc func logoutTapped(_ sender: Any){
-        print("logoutTapped")
+        OTMClient.logout() { (error) in
+            
+            guard error == nil else {
+                print(error)
+                return
+            }
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
 }
