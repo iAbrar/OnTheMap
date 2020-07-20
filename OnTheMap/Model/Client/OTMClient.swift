@@ -78,7 +78,15 @@ class OTMClient {
                print("error")
             }
            
-
+            self.getUserInfo() { (error) in
+                
+                guard error == nil else {
+                    print(error)
+                    return
+                }
+                
+                
+            }
             completion(nil)
         }
         
@@ -107,12 +115,41 @@ class OTMClient {
             let newData = data?.subdata(in: range) /* subset response data! */
             Auth.accountKey = ""
             Auth.sessionId = ""
-          
+            
             completion(nil)
         }
         task.resume()
     }
     
+    class func getUserInfo(completion: @escaping (Error?) -> Void){
+        let request = URLRequest(url: Endpoints.userInfo.url)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil { // Handle error...
+                return
+            }
+            let range = Range(5..<data!.count)
+            let newData = data?.subdata(in: range) /* subset response data! */
+            print("inside get info")
+            print(String(data: newData!, encoding: .utf8)!)
+            
+            if let json = try? JSONSerialization.jsonObject(with: newData!, options: []),
+                let dictionary = json as? [String:Any],
+                let keyDictionary  = dictionary["key"] as? [String: Any],
+                let firstNameDictionary  = dictionary["firstName"] as? [String: Any],
+                let lastNameDictionary  = dictionary["lastName"] as? [String: Any]{
+
+                UserInfoModel.user.key = (keyDictionary["key"] as? String)!
+                UserInfoModel.user.firstName = (firstNameDictionary["firstName"] as? String)!
+                UserInfoModel.user.lastName = (lastNameDictionary["lastName"] as? String)!
+
+            } else { //Err in parsing data
+                print("error")
+            }
+             completion(nil)
+        }
+        task.resume()
+    }
   
     class func getStudentsLocation( completion: @escaping (Locations, Error?) -> Void){
         

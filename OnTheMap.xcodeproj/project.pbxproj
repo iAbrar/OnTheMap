@@ -23,6 +23,9 @@
 		883BA4C324C484860041A013 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BA4C224C484860041A013 /* MapViewController.swift */; };
 		883BA4C524C494350041A013 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BA4C424C494350041A013 /* TableViewController.swift */; };
 		883BA4C724C4B89A0041A013 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BA4C624C4B89A0041A013 /* LocationModel.swift */; };
+		883BA4CA24C56B1C0041A013 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BA4C924C56B1C0041A013 /* UserModel.swift */; };
+		883BA4CC24C5DEA20041A013 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BA4CB24C5DEA20041A013 /* UserInfo.swift */; };
+		883BA4CE24C5DEE80041A013 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BA4CD24C5DEE80041A013 /* UserInfoModel.swift */; };
 		8842F70C24C2A27900F92D3D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8842F70B24C2A27900F92D3D /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +60,9 @@
 		883BA4C224C484860041A013 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		883BA4C424C494350041A013 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		883BA4C624C4B89A0041A013 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		883BA4C924C56B1C0041A013 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		883BA4CB24C5DEA20041A013 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		883BA4CD24C5DEE80041A013 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		8842F70B24C2A27900F92D3D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,10 +155,10 @@
 		8830BF1324BD134800A51D61 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				883BA4C824C56AEE0041A013 /* Data */,
 				8830BF1824BE5F8100A51D61 /* Client */,
 				8830BF1424BE5D6500A51D61 /* Requests */,
 				8830BF1524BE5D7800A51D61 /* Responses */,
-				883BA4C624C4B89A0041A013 /* LocationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,6 +169,7 @@
 				8830BF1624BE5DB200A51D61 /* LoginRequest.swift */,
 				8830BF2124BFAD9700A51D61 /* Session.swift */,
 				8830BF2324BFADA700A51D61 /* Account.swift */,
+				883BA4CB24C5DEA20041A013 /* UserInfo.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -183,6 +190,16 @@
 				8830BF1924BE5F9800A51D61 /* OTMClient.swift */,
 			);
 			path = Client;
+			sourceTree = "<group>";
+		};
+		883BA4C824C56AEE0041A013 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				883BA4C624C4B89A0041A013 /* LocationModel.swift */,
+				883BA4C924C56B1C0041A013 /* UserModel.swift */,
+				883BA4CD24C5DEE80041A013 /* UserInfoModel.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,10 +311,13 @@
 				8830BF2224BFAD9700A51D61 /* Session.swift in Sources */,
 				8830BF2424BFADA700A51D61 /* Account.swift in Sources */,
 				883BA4C524C494350041A013 /* TableViewController.swift in Sources */,
+				883BA4CA24C56B1C0041A013 /* UserModel.swift in Sources */,
 				8830BF1A24BE5F9800A51D61 /* OTMClient.swift in Sources */,
+				883BA4CE24C5DEE80041A013 /* UserInfoModel.swift in Sources */,
 				8842F70C24C2A27900F92D3D /* MainViewController.swift in Sources */,
 				883BA4C724C4B89A0041A013 /* LocationModel.swift in Sources */,
 				8830BEEF24BD128E00A51D61 /* AppDelegate.swift in Sources */,
+				883BA4CC24C5DEA20041A013 /* UserInfo.swift in Sources */,
 				8830BF1C24BE64B300A51D61 /* LoginResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
