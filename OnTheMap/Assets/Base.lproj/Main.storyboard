@@ -127,7 +127,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="mHz-fe-EJZ">
             <objects>
-                <tabBarController id="rVa-Qc-qIo" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainViewController" id="rVa-Qc-qIo" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="m1C-vV-G2F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -259,7 +259,7 @@
         <!--Add Location-->
         <scene sceneID="KPw-xM-Bo8">
             <objects>
-                <viewController id="tW4-Rv-d32" customClass="AddLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tW4-Rv-d32" customClass="NewLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z0O-il-bkC"/>
                         <viewControllerLayoutGuide type="bottom" id="V9p-Pm-dwQ"/>
@@ -337,12 +337,12 @@
                         <viewLayoutGuide key="safeArea" id="3fx-7Y-iZf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Location" id="gUf-5k-cZW">
-                        <barButtonItem key="backBarButtonItem" title="Add Location" id="okh-PY-D3L"/>
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="okh-PY-D3L"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="locationTextField" destination="Ory-D2-1pl" id="g2t-Ea-12a"/>
-                        <outlet property="mediaLinkTextField" destination="BOW-yS-Gl0" id="mvk-Vu-f4V"/>
-                        <segue destination="NUp-iV-okE" kind="show" identifier="mapSegue" id="Ofk-en-hAj"/>
+                        <outlet property="location" destination="Ory-D2-1pl" id="1HI-uf-8AI"/>
+                        <outlet property="mediaLink" destination="BOW-yS-Gl0" id="aIx-HR-TPG"/>
+                        <segue destination="NUp-iV-okE" kind="show" identifier="newLocationMap" id="LFM-eA-B9k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSB-vw-gAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -352,7 +352,7 @@
         <!--Add Location-->
         <scene sceneID="hY0-a7-i7w">
             <objects>
-                <viewController id="NUp-iV-okE" customClass="ConfirmLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NUp-iV-okE" customClass="PostLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pzs-NW-SB1"/>
                         <viewControllerLayoutGuide type="bottom" id="rx7-Us-5h5"/>
@@ -382,7 +382,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="finishTapped:" destination="NUp-iV-okE" eventType="touchUpInside" id="c6H-IO-M3s"/>
+                                    <action selector="finishTapped:" destination="NUp-iV-okE" eventType="touchUpInside" id="DlL-vo-k5w"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -402,7 +402,7 @@
                         <barButtonItem key="backBarButtonItem" title="Add Location" id="cpH-ay-na6"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="mapView" destination="MOv-pa-DWq" id="orD-mk-BUx"/>
+                        <outlet property="mapView" destination="MOv-pa-DWq" id="ZpP-yt-HxN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jnx-uM-nL5" userLabel="First Responder" sceneMemberID="firstResponder"/>

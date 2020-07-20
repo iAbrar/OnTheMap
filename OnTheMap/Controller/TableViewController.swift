@@ -53,7 +53,7 @@ extension TableViewController: UITableViewDataSource, UITableViewDelegate {
         
         let location = LocationModel.studentsLocationList[indexPath.row]
         
-        cell.textLabel?.text = "\(location.firstName) \(location.lastName)"
+        cell.textLabel?.text = "\(location.firstName!) \(location.lastName!)"
         cell.imageView?.image = UIImage(named: "icon_pin")
 
         return cell
@@ -66,7 +66,7 @@ extension TableViewController: UITableViewDataSource, UITableViewDelegate {
         let app = UIApplication.shared
          let studentUrl = location.mediaURL
        
-        let url = URL(string: studentUrl)
+        let url = URL(string: studentUrl!)
         
         if url != nil {
             UIApplication.shared.open(url!, options: [:], completionHandler: nil)

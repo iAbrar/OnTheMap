@@ -36,9 +36,9 @@ class MapViewController: MainViewController, MKMapViewDelegate {
         for location in locations {
             
             let annotation = MKPointAnnotation()
-            annotation.title = "\(location.firstName) \(location.lastName)"
+            annotation.title = "\(location.firstName!) \(location.lastName!)"
             annotation.subtitle = location.mediaURL
-            annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+            annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude!, longitude: location.longitude!)
             mapView.addAnnotation(annotation)
         }
     }
