@@ -10,26 +10,28 @@ import UIKit
 import MapKit
 
 class NewLocationViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var location: UITextField!
     @IBOutlet weak var mediaLink: UITextField!
+    
+     let activity = UIActivityIndicatorView(style: .gray)
     
     var studentLocation = StudentLocation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         location.delegate = self
         mediaLink.delegate = self
         
-         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add Location", style: .done, target: self, action: #selector(self.cancelTapped(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add Location", style: .done, target: self, action: #selector(self.cancelTapped(_:)))
     }
     
     @IBAction func findLocationTapped(_ sender: UIButton) {
         guard let location = location.text,
             let mediaLink = mediaLink.text,
             location != "", mediaLink != "" else {
-              print("error")
+                self.showErrorMSg(title: "Place not found", message: "Please fill both fields and try again")
                 return
         }
         
@@ -37,6 +39,12 @@ class NewLocationViewController: UIViewController, UITextFieldDelegate {
         self.studentLocation.mapString = location
         self.studentLocation.mediaURL = mediaLink
         
+       
+        self.view.addSubview(activity)
+        self.view.bringSubviewToFront(activity)
+        activity.center = self.view.center
+        activity.hidesWhenStopped = true
+        activity.startAnimating()
         // create the search request
         
         let search = MKLocalSearch.Request()
@@ -46,7 +54,9 @@ class NewLocationViewController: UIViewController, UITextFieldDelegate {
         activeSearch.start {(response, error) in
             
             if response == nil {
-                print("Location not found!")
+                self.showErrorMSg(title: "Place not found", message: "Please try again! ")
+                self.activity.stopAnimating()
+                return
             }else{
                 
                 // getting the data
@@ -55,19 +65,19 @@ class NewLocationViewController: UIViewController, UITextFieldDelegate {
                 
                 self.studentLocation.latitude = latitude
                 self.studentLocation.longitude = longitude
-               
+                
                 
                 // send student location to post location vc
                 self.performSegue(withIdentifier: "newLocationMap", sender: self.studentLocation)
-    
+                 self.activity.stopAnimating()
             }
             
         }
         
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var vc = segue.destination as! PostLocationViewController
+        let vc = segue.destination as! PostLocationViewController
         vc.location = self.studentLocation
     }
     

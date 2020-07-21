@@ -36,8 +36,6 @@ class PostLocationViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func finishTapped(_ sender: Any) {
        
-        
-        print(self.location.firstName)
         OTMClient.postUserLocation(student: self.location) { (error) in
            
             guard error == nil else {
