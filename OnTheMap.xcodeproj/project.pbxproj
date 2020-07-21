@@ -28,6 +28,7 @@
 		883BA4CE24C5DEE80041A013 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BA4CD24C5DEE80041A013 /* UserInfoModel.swift */; };
 		883BA4D024C5E4BA0041A013 /* NewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BA4CF24C5E4BA0041A013 /* NewLocationViewController.swift */; };
 		883BA4D224C5E5CA0041A013 /* PostLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BA4D124C5E5CA0041A013 /* PostLocationViewController.swift */; };
+		883BA4D524C73FEC0041A013 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BA4D424C73FEC0041A013 /* UIViewController.swift */; };
 		8842F70C24C2A27900F92D3D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8842F70B24C2A27900F92D3D /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		883BA4CD24C5DEE80041A013 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		883BA4CF24C5E4BA0041A013 /* NewLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLocationViewController.swift; sourceTree = "<group>"; };
 		883BA4D124C5E5CA0041A013 /* PostLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationViewController.swift; sourceTree = "<group>"; };
+		883BA4D424C73FEC0041A013 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		8842F70B24C2A27900F92D3D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,7 @@
 		8830BEED24BD128E00A51D61 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				883BA4D324C73F680041A013 /* Extensions */,
 				8830BEFA24BD129100A51D61 /* Info.plist */,
 				8830BEEE24BD128E00A51D61 /* AppDelegate.swift */,
 				8830BF1324BD134800A51D61 /* Model */,
@@ -206,6 +209,14 @@
 				883BA4CD24C5DEE80041A013 /* UserInfoModel.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		883BA4D324C73F680041A013 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				883BA4D424C73FEC0041A013 /* UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +323,7 @@
 				883BA4C324C484860041A013 /* MapViewController.swift in Sources */,
 				8830BF1E24BE745700A51D61 /* StudentLocation.swift in Sources */,
 				8830BF1724BE5DB200A51D61 /* LoginRequest.swift in Sources */,
+				883BA4D524C73FEC0041A013 /* UIViewController.swift in Sources */,
 				8830BEF124BD128E00A51D61 /* LoginViewController.swift in Sources */,
 				8830BF2024BE74AB00A51D61 /* Locations.swift in Sources */,
 				8830BF2224BFAD9700A51D61 /* Session.swift in Sources */,
